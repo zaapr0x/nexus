@@ -1,0 +1,23 @@
+{
+    "name": "mallard-nexus",
+    "version": "0.1.0",
+    "description": "Nexus. The powerful Discord bot for managing your Mallard products and services.",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node --no-deprecation src/index.js",
+        "dev": "nodemon --no-deprecation src/index.js"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.46.1",
+        "date-fns": "^4.1.0",
+        "discord.js": "^14.16.3",
+        "dotenv": "^16.4.5",
+        "node-fetch": "^2.6.7",
+        "pg": "^8.13.1",
+        "sharp": "^0.33.5",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.7"
+    }
+}
