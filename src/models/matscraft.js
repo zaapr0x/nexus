@@ -4,10 +4,10 @@ const { parseMinecraftPosition } = require("../utils/parseCoordinate");
 
 async function saveMinecraftData(data) {
   try {
-    // Parsing posisi ke JSON
+    // Parse position into JSON
     const coordinates = parseMinecraftPosition(data.position);
 
-    // Format data untuk hashing
+    // Format data for hashing
     const formattedData = {
       minecraft_id: data.uuid,
       block: data.block.replace("block.matscraft.", ""),
@@ -24,13 +24,13 @@ async function saveMinecraftData(data) {
       )
       .digest("hex");
 
-    formattedData.hash = hashString; // Tambahkan hash ID ke data
+    formattedData.hash = hashString; // Add Hash ID To Data
 
     console.log("Formatted Data with Hash ID:", formattedData);
 
-    // Simpan data ke tabel `minecraft_blocks` di Supabase
+    // Save data to the `minecraft_blocks` table in Supabase
     const { data: insertedData, error } = await supabase
-      .from("minecraft_blocks") // Nama tabel di Supabase
+      .from("minecraft_blocks") // Table name in Supabase
       .insert([formattedData]);
 
     if (error) {
